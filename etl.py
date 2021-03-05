@@ -14,7 +14,17 @@ os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 
 def create_spark_session():
-    '''Creates Spark session'''
+    '''Creates Spark session.
+    
+    Returns currently running Spark Session, or creates a new session and returns it.
+    
+    Parameters:
+        None
+    
+    Returns:
+        SparkSession: spark
+    
+    '''
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
@@ -23,7 +33,19 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
-    '''Creates songs_table and artists_table using song data'''
+    '''Processes song data.
+    
+    Creates songs_table and artists_table using song data.
+    
+    Parameters:
+        spark (SparkSession): Current Spark session
+        input_data (str): String of directory of song_data and log_data
+        output_data (str): String of directory where output data is written
+
+    Returns:
+        None
+        
+    '''
     
     print('process_song_data starting     (0/2)')
     
@@ -52,7 +74,19 @@ def process_song_data(spark, input_data, output_data):
 
     
 def process_log_data(spark, input_data, output_data):
-    '''Creates users_table, time_table, and songplays_table using log data'''
+    '''Processes log data.
+    
+    Creates users_table and time_table using log data. The song and log datasets are joined to create the songplays_table.
+    
+    Parameters:
+        spark (SparkSession): Current Spark session
+        input_data (str): String of directory of song_data and log_data
+        output_data (str): String of directory where output data is written 
+    
+    Returns:
+        None
+    
+    '''
     
     print('process_log_data starting      (0/3)')
     # get filepath to log data file

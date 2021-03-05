@@ -37,4 +37,4 @@ The log files in the dataset are partitioned by year and month. For example, her
 
 And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.
 
-[!Log Data Example](https://video.udacity-data.com/topher/2019/February/5c6c3f0a_log-data/log-data.png "Log Data Example")
+![Log Data Example](https://video.udacity-data.com/topher/2019/February/5c6c3f0a_log-data/log-data.png "Log Data Example")

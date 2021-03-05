@@ -1,4 +1,6 @@
 # Data Lake
+
+## Introduction
 A music streaming startup, Sparkify, has grown their user base and song database even more and want to move their data warehouse to a data lake. Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
 I have built an ETL pipeline that extracts their data from S3, processes in using Spark, and loads the data back into S3 as a set of dimensional tables. This will allow their analytics team to continue finding insights in what songs their users are listening to.
@@ -6,7 +8,7 @@ I have built an ETL pipeline that extracts their data from S3, processes in usin
 ## Project Description
 In this project, I have built an ETL pipeline for a data lake hosted on S3. The data is loaded from S3, processed into analytics tables using Spark, and loaded back into S3. This Spark process is deployed on a cluster using AWS.
 
-My database is a star schema with `songplays` as its fact table, and `users`, `songs`, `artist`, and `time`, as its dimension tables. A star schema is a denormalized database design which allows for simplified queries and faster aggregations on the data. This structure is ideal for OLAP operations such as rolling-up, drilling-down, slicing, and dicing. 
+My database is a star schema with `songplays` as its fact table, and `users`, `songs`, `artist`, and `time`, as its dimension tables. A star schema is a denormalized database design which allows for simplified queries and faster aggregations on the data. This structure is ideal for OLAP operations such as rolling-up, drilling-down, slicing, and dicing. The resulting tables are saved in Parquet format. 
 
 ## Project Datasets
 
@@ -38,3 +40,7 @@ The log files in the dataset are partitioned by year and month. For example, her
 And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.
 
 [!Log Data Example](https://video.udacity-data.com/topher/2019/February/5c6c3f0a_log-data/log-data.png "Log Data Example")
+
+## How to Run
+
+In order to run this program, `dl.cfg` must be configured to include your AWS Access Key ID and Secret Access Key. From there, running `etl.py` will extract the data from S3, process it into analytics tables, and save the output as Parquet files. If desired, the output can be changed to an S3 bucket for improved performance.

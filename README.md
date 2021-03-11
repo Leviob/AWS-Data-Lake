@@ -44,6 +44,7 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 ## File Descriptions
 
 `dl.cfg` - Contains credentials necessary for authenticating into AWS.
+
 `etl.py` - ETL process for transforming raw data into analytics tables which are saved as Parquet files
 
 ## How to Run

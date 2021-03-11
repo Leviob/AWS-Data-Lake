@@ -41,6 +41,11 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 
 ![Log Data Example](https://video.udacity-data.com/topher/2019/February/5c6c3f0a_log-data/log-data.png "Log Data Example")
 
+## File Descriptions
+
+`dl.cfg` - Contains credentials necessary for authenticating into AWS.
+`etl.py` - ETL process for transforming raw data into analytics tables which are saved as Parquet files
+
 ## How to Run
 
 In order to run this program, `dl.cfg` must be configured to include your AWS Access Key ID and Secret Access Key. From there, running `etl.py` will extract the data from S3, process it into analytics tables, and save the output as Parquet files. If desired, the output can be changed to an S3 bucket for improved performance.
